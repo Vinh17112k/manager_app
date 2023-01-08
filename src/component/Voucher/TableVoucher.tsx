@@ -46,7 +46,7 @@ const TableVoucher = ({
       dataIndex: "code",
     },
     {
-      title: "Ngày hết hạn",
+      title: "Ngày hiệu lực",
       dataIndex: "expiredDate",
       render: (value) => {
         return <span>{moment(value).format(DATE_FORMAT_TYPE_DDMMYYYY)}</span>

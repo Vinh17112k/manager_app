@@ -129,7 +129,7 @@ const DetailVoucher = () => {
               <SelectCommon options={TYPE} disabled={action === "view"}/>
             </Form.Item>
           </Col>
-          <Col span={8}>
+          {/* <Col span={8}>
             <Form.Item
               name="expiredDate"
               label="Ngày hiệu lực"
@@ -146,7 +146,7 @@ const DetailVoucher = () => {
                 className="date-picker"
               />
             </Form.Item>
-          </Col>
+          </Col> */}
           <Col span={8}>
             <Form.Item
               name="discountPrice"

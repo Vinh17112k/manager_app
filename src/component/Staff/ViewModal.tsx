@@ -133,8 +133,6 @@ const ViewModal = ({
             <CommonFormItem
               name="phone"
               label="Số điện thoại"
-              max={12}
-              min={9}
               isRequired
             >
               <Input

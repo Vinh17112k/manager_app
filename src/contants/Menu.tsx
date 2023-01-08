@@ -23,12 +23,12 @@ const getItem = (
 };
 const items: MenuItem[] = [
   getItem("Trang chủ", path.home, <HomeOutlined />),
-  getItem("Đơn hàng", path.order, <DollarCircleOutlined />),
   getItem("Người dùng", path.staff, <UsergroupAddOutlined />),
   getItem("Khách hàng", path.client, <UserOutlined />),
   getItem("Sản phẩm", path.product, <ShoppingOutlined />),
   getItem("Danh mục", path.productType, <ShoppingOutlined />),
   getItem("Khuyến mại", path.voucher, <ShoppingOutlined />),
+  getItem("Đơn hàng", path.order, <DollarCircleOutlined />),
   getItem("Thông báo", path.notify, <BellOutlined />),
   getItem("Đơn hàng hủy", path.orderCancel, <BellOutlined />),
 ];
