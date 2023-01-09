@@ -54,7 +54,6 @@ export const getDetailOrder = createAsyncThunk(
   "order/detailOrder",
   async (id: string | undefined) => {
     const result = await instance.get(`/api/v1/order/detail/${id}`);
-    console.log("result", result);
     return result;
   }
 );
@@ -85,6 +84,10 @@ const orderSlice = createSlice({
       .addCase(getOrderCancel.fulfilled, (state, action) => {
         state.dataOrderCancel = action.payload.data.data.content;
         state.totalElements = action.payload.data.data.totalElements;
+      })
+      .addCase(getDetailOrder.fulfilled, (state,action) => {
+        console.log('action',action)
+        state.dataDetailOrder = action.payload.data.data;
       })
   },
 });

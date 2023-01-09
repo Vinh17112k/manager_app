@@ -37,6 +37,7 @@ const DetailOrder = () => {
             dataIndex: "totalPrice",
         },
     ];
+    console.log("data detail order", dataDetailOrder);
     return (
         <div
             style={{ background: "#F8F8FD", borderRadius: "3px", padding: "30px" }}
