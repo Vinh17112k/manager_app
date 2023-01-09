@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { IFormColumnsOrder, IFormSearchOrder } from "../../model/Order.model";
 import { IFormProps } from "../../model/utils";
 import moment from 'moment'
-import { DATE_FORMAT_TYPE_DDMMYYYY } from "../../utils/contants";
+import { CONVERT_MONEY, DATE_FORMAT_TYPE_DDMMYYYY } from "../../utils/contants";
 import { CheckCircleOutlined, CheckOutlined, CloseCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import CommonTable from "../../utils/CommonTable";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -51,7 +51,7 @@ const TableOrder = ({ valueSearch, setPage, setSize, page, size }: Omit<IFormPro
       title: 'Giá trị đơn hàng',
       dataIndex: 'price',
       render(value) {
-        return <span>{value} VND</span>
+        return <span>{CONVERT_MONEY(value)}</span>
       }
     },
     {
@@ -65,18 +65,18 @@ const TableOrder = ({ valueSearch, setPage, setSize, page, size }: Omit<IFormPro
       title: 'Phí vận chuyển',
       dataIndex: 'shippingTotal',
       render(value) {
-        return <span>{value ? `$${value}` : ''} VND</span>
+        return <span>{CONVERT_MONEY(value) ? `$${CONVERT_MONEY(value)}` : ''}</span>
       }
     },
     {
       title: 'Trạng thái thanh toán',
       dataIndex: 'isPayment',
       render(value) {
-        if (value === 0) {
-          return <span>Chưa thanh toán</span>
+        if (value === false) {
+          return <Tag color="red">Chưa thanh toán</Tag>
         }
-        if (value === 1) {
-          return <span>Đã thanh toán</span>
+        if (value === true) {
+          return <Tag color="green">Đã thanh toán</Tag>
         }
 
       }

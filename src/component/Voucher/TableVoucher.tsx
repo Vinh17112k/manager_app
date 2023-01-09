@@ -14,7 +14,7 @@ import {
 import { path } from "../../router/path";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import CommonTable from "../../utils/CommonTable";
-import { DATE_FORMAT_TYPE_DDMMYYYY } from "../../utils/contants";
+import { CONVERT_MONEY, DATE_FORMAT_TYPE_DDMMYYYY } from "../../utils/contants";
 
 interface IFormProps {
   page: number;
@@ -55,6 +55,9 @@ const TableVoucher = ({
     {
       title: "Giá khuyến mãi",
       dataIndex: "discountPrice",
+      render(value) {
+        return <span>{CONVERT_MONEY(value) ? `$${CONVERT_MONEY(value)}` : ''}</span>
+      }
     },
     {
       title: "Trạng thái",

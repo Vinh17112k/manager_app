@@ -8,6 +8,7 @@ import { changeAction, deleteProduct, getAllProduct } from "../../pages/Product/
 import { path } from "../../router/path";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import CommonTable from "../../utils/CommonTable";
+import { CONVERT_MONEY } from "../../utils/contants";
 
 interface IFormProps {
   page: number;
@@ -45,6 +46,9 @@ const TableProduct = ({
     {
       title: "Giá",
       dataIndex: "price",
+      render(value) {
+        return <span>{CONVERT_MONEY(value) ? `$${CONVERT_MONEY(value)}` : ''}</span>
+      }
     },
     {
       title: "Số lượng tồn kho",
