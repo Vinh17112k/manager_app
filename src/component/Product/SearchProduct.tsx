@@ -18,6 +18,7 @@ import CommonFormItem from "../../utils/CommonFormItem";
 import { DATE_FORMAT_TYPE_DDMMYYYY } from "../../utils/contants";
 import { filterSelectOption, STATUS } from "../../utils/filterOptions";
 import SelectCommon from "../../utils/SelectCommon";
+import dayjs from "dayjs";
 
 interface IFormProps {
   setValueSearch: React.Dispatch<React.SetStateAction<IFormSearchProduct>>;
@@ -31,7 +32,10 @@ const SearchProduct = ({ setValueSearch }: IFormProps) => {
   const { dataMake, dataProductType, dataCode, dataName, dataCreated, dataProductMake } =
     useAppSelector((state) => state.productReducer);
   const handleSubmit = (data: any) => {
-    setValueSearch(data);
+    setValueSearch({...data,
+      fromDate: data.fromDate ? dayjs(data.fromDate).format("DD/MM/YYYY") : "",
+      toDate: data.toDate ? dayjs(data.toDate).format("DD/MM/YYYY") : "",
+    });
   };
   const handleAddNew = () => {
     navigate(path.addnewProduct);
