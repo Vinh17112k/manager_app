@@ -4,7 +4,8 @@ import { toast } from "react-toastify";
 
 const instance = axios.create({
   // baseURL: "http://admin-env.eba-fmussg3m.us-east-1.elasticbeanstalk.com",
-  baseURL: "http://127.0.0.1:8081",
+  // baseURL: "http://127.0.0.1:8081",
+  baseURL: "https://admin-app-vinh.herokuapp.com",
 });
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
   const token = localStorage.getItem("auth");

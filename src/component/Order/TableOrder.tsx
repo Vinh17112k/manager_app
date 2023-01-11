@@ -65,7 +65,7 @@ const TableOrder = ({ valueSearch, setPage, setSize, page, size }: Omit<IFormPro
       title: 'Phí vận chuyển',
       dataIndex: 'shippingTotal',
       render(value) {
-        return <span>{CONVERT_MONEY(value) ? `$${CONVERT_MONEY(value)}` : ''}</span>
+        return <span>{CONVERT_MONEY(value) ? `${CONVERT_MONEY(value)}` : ''}</span>
       }
     },
     {
